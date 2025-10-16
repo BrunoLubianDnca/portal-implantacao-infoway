@@ -1,0 +1,609 @@
+﻿.trilho {
+  padding: 6rem 0;
+  background: var(--bg-soft);
+}
+
+.trilho-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.trilho-header h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+.trilho-header p {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.etapas-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.etapa-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 2px solid var(--neutral-100);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Imagem de fundo com transparência - DESATIVADO */
+/* 
+.etapa-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.etapa-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 1;
+}
+*/
+
+.etapa-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-300);
+}
+
+.etapa-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.etapa-number {
+  position: relative;
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  background: var(--primary-500);
+  color: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(225, 85, 3, 0.3);
+}
+
+.etapa-icon {
+  position: relative;
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--primary-400), var(--primary-500));
+  color: #FFFFFF;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.etapa-info {
+  flex: 1;
+}
+
+.etapa-card h3 {
+  position: relative;
+  z-index: 10;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.etapa-card p {
+  position: relative;
+  z-index: 10;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.etapa-tempo {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.etapa-topicos {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--neutral-50);
+  border-radius: 8px;
+}
+
+.topico {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.topico::before {
+  content: '✓';
+  color: var(--primary-500);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.etapa-footer {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.btn-acessar {
+  flex: 1;
+  background: var(--primary-500);
+  color: #FFFFFF;
+  padding: 0.875rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(225, 85, 3, 0.3);
+}
+
+.btn-acessar:hover {
+  background: var(--primary-600);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(225, 85, 3, 0.4);
+}
+
+.btn-acessar:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--neutral-300);
+}
+
+.btn-concluido {
+  background: var(--green-success);
+  color: #FFFFFF;
+  padding: 0.875rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);
+}
+
+.etapa-card.concluida {
+  background: linear-gradient(135deg, #FFFFFF, rgba(34, 197, 94, 0.05));
+  border-color: var(--green-success);
+}
+
+.etapa-card.concluida .etapa-number {
+  background: var(--green-success);
+}
+
+.etapa-card.bloqueada {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.etapa-card.bloqueada::after {
+  content: '🔒';
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  opacity: 0.5;
+}
+
+.etapa-card.proxima-etapa {
+  background: linear-gradient(135deg, #FFFFFF 0%, var(--primary-50) 100%);
+  border: 3px solid var(--primary-500);
+  box-shadow: 0 8px 24px rgba(225, 85, 3, 0.25), 0 0 0 4px rgba(225, 85, 3, 0.1);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.etapa-card.proxima-etapa::before {
+  content: 'PRÓXIMA ETAPA';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--primary-600), var(--primary-500));
+  color: #FFFFFF;
+  padding: 0.375rem 1.25rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(225, 85, 3, 0.3);
+  z-index: 10;
+  animation: bounce-soft 2s ease-in-out infinite;
+}
+
+.btn-acessar.btn-proxima {
+  background: var(--primary-600);
+  font-size: 1.125rem;
+  padding: 1rem 1.75rem;
+  box-shadow: 0 6px 20px rgba(225, 85, 3, 0.35);
+  animation: pulse-button 2s ease-in-out infinite;
+}
+
+.btn-acessar.btn-proxima:hover {
+  background: var(--primary-700);
+  box-shadow: 0 8px 28px rgba(225, 85, 3, 0.45);
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 8px 24px rgba(225, 85, 3, 0.25), 0 0 0 4px rgba(225, 85, 3, 0.1);
+  }
+  50% {
+    box-shadow: 0 12px 32px rgba(225, 85, 3, 0.35), 0 0 0 6px rgba(225, 85, 3, 0.15);
+  }
+}
+
+@keyframes bounce-soft {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-4px);
+  }
+}
+
+@keyframes pulse-button {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@media (max-width: 1200px) {
+  .etapas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Connector Arrow */
+.etapa-connector {
+  position: absolute;
+  z-index: 15;
+  right: -2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary-400);
+  opacity: 0.6;
+}
+
+/* Lock Overlay */
+.etapa-lock-overlay {
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.etapa-lock-overlay .lock-icon {
+  color: var(--neutral-400);
+  opacity: 0.7;
+}
+
+/* Tooltip */
+.etapa-tooltip {
+  position: absolute;
+  z-index: 30;
+  bottom: calc(100% + 1rem);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--text-dark);
+  color: #FFFFFF;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  min-width: 280px;
+  max-width: 320px;
+}
+
+.etapa-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: var(--text-dark);
+}
+
+.tooltip-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--primary-300);
+}
+
+.tooltip-header strong {
+  font-weight: 700;
+}
+
+.tooltip-description {
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+}
+
+/* Timeline Visual */
+.tooltip-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 1rem;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 0.75rem;
+  position: relative;
+}
+
+.timeline-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-300);
+  background: transparent;
+  z-index: 2;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.timeline-dot.pending {
+  border-color: #FFA500;
+  background: #FFA500;
+  box-shadow: 0 0 8px rgba(255, 165, 0, 0.6);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    box-shadow: 0 0 8px rgba(255, 165, 0, 0.6);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 16px rgba(255, 165, 0, 0.8);
+    transform: scale(1.1);
+  }
+}
+
+.timeline-line {
+  width: 2px;
+  height: 30px;
+  background: linear-gradient(180deg, var(--primary-300) 0%, rgba(255, 138, 77, 0.3) 100%);
+  margin: 2px 0;
+}
+
+.timeline-content {
+  flex: 1;
+  padding-bottom: 0.75rem;
+}
+
+.timeline-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.timeline-number {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.timeline-badge {
+  font-size: 0.6875rem;
+  background: rgba(255, 165, 0, 0.2);
+  color: #FFA500;
+  padding: 0.125rem 0.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.timeline-subtitle {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.4;
+}
+
+/* Footer do Tooltip */
+.tooltip-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+}
+
+.tooltip-footer svg {
+  color: var(--primary-300);
+  flex-shrink: 0;
+}
+
+/* Legacy support (manter para compatibilidade) */
+.tooltip-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tooltip-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.tooltip-list li svg {
+  color: var(--primary-300);
+  flex-shrink: 0;
+}
+
+/* Badge Concluído */
+.etapa-badge-concluida {
+  position: absolute;
+  z-index: 15;
+  top: 1rem;
+  right: 1rem;
+  background: var(--green-success);
+  color: #FFFFFF;
+  padding: 0.5rem 0.875rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+/* Shake Animation */
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+.etapa-card.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .etapas-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+  
+  .trilho-header h2 {
+    font-size: 2rem;
+  }
+  
+  .trilho {
+    padding: 3rem 0;
+  }
+  
+  .etapa-connector {
+    display: none;
+  }
+  
+  .etapa-tooltip {
+    min-width: 240px;
+    max-width: calc(100vw - 2rem);
+    left: 1rem;
+    right: 1rem;
+    transform: none;
+    bottom: auto;
+    top: calc(100% + 1rem);
+  }
+  
+  .etapa-tooltip::after {
+    top: auto;
+    bottom: 100%;
+    border-top-color: transparent;
+    border-bottom-color: var(--text-dark);
+  }
+  
+  /* Touch support para mobile */
+  .etapa-card.bloqueado {
+    cursor: pointer;
+  }
+  
+  .timeline-line {
+    height: 24px;
+  }
+}

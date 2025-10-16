@@ -1,0 +1,175 @@
+/* ============================================
+   TEMA INFOWAY - PALETA PRINCIPAL (SEM AZUL)
+   Paleta e diretrizes fornecidas pelo cliente
+   ============================================ */
+
+:root {
+  /* ===== CORES PRINCIPAIS ===== */
+
+  /* Cor principal (CTA) - escala */
+  --primary-50:  #FFF3ED;
+  --primary-100: #FFE1D6;
+  --primary-200: #FFC2AD;
+  --primary-300: #FF9E80;
+  --primary-400: #FF7A52;
+  --primary-500: #E15503; /* principal - Laranja/Pêssego */
+  --primary-600: #C94A03; /* hover */
+  --primary-700: #B13F02;
+  --primary-800: #993302;
+  --primary-900: #7A2800;
+
+  /* Aliases compatibilidade */
+  --brand-peach: #E15503;
+  --brand-peach-hover: #C94A03;
+
+  /* Neutros - Hierarquia de cinzas */
+  --neutral-50:  #F5F5F5;  /* Cinza Claro - fundos de seção */
+  --neutral-100: #E0E0E0;
+  --neutral-200: #CCCCCC;
+  --neutral-300: #B3B3B3;
+  --neutral-400: #999999;
+  --neutral-500: #808080;
+  --neutral-600: #666666;  /* Texto secundário */
+  --neutral-700: #4D4D4D;
+  --neutral-800: #333333;  /* Grafite - Texto principal */
+  --neutral-900: #1A1A1A;
+
+  --text-dark: #333333;           /* Grafite - Texto principal, títulos e menus */
+  --text-muted: #666666;          /* Texto secundário */
+  --bg-white: #FFFFFF;            /* Branco - Fundo predominante */
+  --bg-soft: #F5F5F5;             /* Cinza Claro - Fundos de seção */
+  --border-soft: #E0E0E0;         /* Bordas discretas */
+
+  /* Sucesso/Feedback */
+  --green-success: #22c55e;
+  --green-success-light: #4ade80;
+  --red-error: #dc2626;
+  --yellow-warning: #f59e0b;
+
+  /* ===== MAPEAMENTO DE CORES (Compatibilidade) ===== */
+  --primary-orange: #E15503;
+  --secondary-orange: #C94A03;
+  --dark-gray: #333333;
+  --medium-gray: #666666;
+  --light-gray: #E0E0E0;
+  --lighter-gray: #F5F5F5;
+  --white: #FFFFFF;
+  --success: #22c55e;
+  --success-light: #4ade80;
+  --warning: #f59e0b;
+
+  /* ===== SOMBRAS ===== */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 6px 14px rgba(0,0,0,0.08);
+  --shadow-lg: 0 16px 32px rgba(0,0,0,0.12);
+
+  /* ===== APLICAÇÕES ESPECÍFICAS ===== */
+  /* Navbar e Header */
+  --navbar-bg: rgba(255, 255, 255, 0.95);
+  --navbar-text: var(--text-dark);
+  --navbar-hover: var(--primary-500);
+
+  /* Footer */
+  --footer-bg: var(--bg-soft);
+  --footer-text: var(--text-dark);
+  --footer-text-secondary: var(--text-muted);
+
+  /* Títulos e Links */
+  --title-primary: var(--text-dark);
+  --title-accent: var(--primary-500);
+  /* Links de texto: usar tom mais escuro para contraste */
+  --link-text: var(--primary-700);
+  --link-color: var(--link-text);
+  --link-hover: var(--primary-600);
+
+  /* Botões */
+  --btn-primary-bg: var(--brand-peach);
+  --btn-primary-hover: var(--brand-peach-hover);
+  --btn-secondary-bg: var(--bg-soft);
+  --btn-secondary-text: var(--text-dark);
+  --btn-secondary-hover: #ededed;
+
+  /* Cards */
+  --card-border: var(--neutral-200);
+  --card-hover-border: var(--primary-500);
+  --card-shadow: var(--shadow-md);
+  --card-shadow-hover: 0 10px 30px rgba(254, 80, 0, 0.18);
+
+  /* Progress */
+  --progress-bg: var(--neutral-200);
+  --progress-fill: var(--primary-500);
+
+  /* Status */
+  --status-success: var(--green-success);
+  --status-warning: var(--yellow-warning);
+  --status-info: var(--primary-500);
+  --status-error: var(--red-error);
+
+  /* Superfícies e semânticos */
+  --surface: var(--bg-white);
+  --surface-alt: var(--bg-soft);
+  --border: var(--neutral-200);
+  --muted: var(--neutral-600);
+  --heading: var(--text-dark);
+  --on-primary: #ffffff;
+  --on-surface: var(--text-dark);
+  --focus-ring: 0 0 0 3px rgba(254, 80, 0, 0.35);
+
+  /* Botões padrão */
+  --btn-radius: 10px;
+  --btn-shadow: var(--shadow-md);
+}
+
+/* Tipografia base definida em src/index.css (Montserrat) */
+
+/* ===== UTILITÁRIOS ===== */
+.bg-peach { background-color: var(--brand-peach); }
+.text-peach { color: var(--brand-peach); }
+.border-peach { border-color: var(--brand-peach); }
+.section {
+  background: var(--bg-white);
+}
+.section.alt {
+  background: var(--bg-soft);
+}
+
+/* Títulos com barra vertical fina à esquerda (utilitário) */
+.title-with-bar {
+  position: relative;
+  padding-left: 12px;
+}
+.title-with-bar::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  bottom: 0.15em;
+  width: 4px;
+  border-radius: 2px;
+  background: #E15503;
+}
+
+/* ===== SOBRESCREVER TODAS AS CORES ANTIGAS ===== */
+:root {
+  --primary-orange: #E15503 !important;
+  --secondary-orange: #C94A03 !important;
+  --primary-500: #E15503 !important;
+  --primary-600: #E15503 !important;
+  --primary-700: #C94A03 !important;
+  --primary-400: #FF7A52 !important;
+  --text-dark: #333333 !important;
+  --dark-gray: #333333 !important;
+  --medium-gray: #666666 !important;
+  --text-muted: #666666 !important;
+  --bg-white: #FFFFFF !important;
+  --white: #FFFFFF !important;
+  --bg-soft: #F5F5F5 !important;
+  --lighter-gray: #F5F5F5 !important;
+  --border-soft: #E0E0E0 !important;
+  --light-gray: #E0E0E0 !important;
+  --neutral-800: #333333 !important;
+  --neutral-600: #666666 !important;
+  --neutral-50: #F5F5F5 !important;
+}
+
+/* Cores específicas para canais de suporte - REMOVIDAS para design minimalista */

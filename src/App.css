@@ -1,0 +1,19 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+.main-with-sidebar {
+  margin-left: 320px;
+}
+
+@media (max-width: 1024px) {
+  .main-with-sidebar {
+    margin-left: 0;
+  }
+}
