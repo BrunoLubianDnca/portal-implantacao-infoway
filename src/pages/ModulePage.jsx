@@ -26,7 +26,7 @@ import { isModuleBlocked, getAllowedModuleId } from '../utils/progress'
 const modulosData = {
   1: {
     titulo: 'Acesso ao Servidor',
-    videoId: 'dQw4w9WgXcQ', // Substitua pelo ID real do YouTube
+    videoId: 'NBMuLefgsII',
     descricao: 'Aprenda a acessar o servidor via navegador e configure seu ambiente de trabalho',
     conteudo: [
       {
@@ -111,7 +111,7 @@ const modulosData = {
   },
   2: {
     titulo: 'Configuração Inicial',
-    videoId: 'dQw4w9WgXcQ',
+    videoId: 'mfDjSwL90Ow',
     descricao: 'Configure a interface virtual e entenda os sistemas integrados',
     conteudo: [
       {
@@ -185,7 +185,7 @@ const modulosData = {
   },
   3: {
     titulo: 'Infodrive: Pasta de Rede',
-    videoId: 'dQw4w9WgXcQ',
+    videoId: 'R5cXyq3kbDQ',
     descricao: 'Compartilhamento de arquivos entre sua máquina e o servidor',
     duracao: '7 minutos',
     formato: 'Vídeo + Diagrama',
@@ -269,7 +269,7 @@ const modulosData = {
   },
   4: {
     titulo: 'Suporte & FAQ',
-    videoId: 'dQw4w9WgXcQ',
+    videoId: 'HZbRpQzAWtc',
     descricao: 'Saiba quando e como acionar o suporte técnico',
     conteudo: [
       {

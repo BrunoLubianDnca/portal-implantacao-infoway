@@ -50,3 +50,4 @@ yarn-error.log
 # Temp files
 *.tmp
 temp/
+.vercel
