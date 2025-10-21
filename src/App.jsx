@@ -8,12 +8,14 @@ import WhatsAppFloat from './components/WhatsAppFloat'
 import Home from './pages/Home'
 import ModulePage from './pages/ModulePage'
 import AuthScreen from './pages/AuthScreen'
+import VideoModuleIntro from './pages/VideoModuleIntro'
 import './App.css'
 
 
 function AppContent() {
   const location = useLocation()
   const isModulePage = location.pathname.startsWith('/modulo/')
+  const isVideoIntroPage = location.pathname === '/module-intro'
   
   // Rastrear navegação de páginas
   useEffect(() => {
@@ -31,17 +33,18 @@ function AppContent() {
 
   return (
     <div className="app">
-      <Navbar />
-      {isModulePage && <ProgressSidebar progressoGeral={50} />}
-      <div className={isModulePage ? 'main-with-sidebar' : ''}>
+      {!isVideoIntroPage && <Navbar />}
+      {isModulePage && !isVideoIntroPage && <ProgressSidebar progressoGeral={50} />}
+      <div className={isModulePage && !isVideoIntroPage ? 'main-with-sidebar' : ''}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/modulo/:id" element={<ModulePage />} />
           <Route path="/auth" element={<AuthScreen />} />
+          <Route path="/module-intro" element={<VideoModuleIntro />} />
         </Routes>
       </div>
-      <Footer />
-      <WhatsAppFloat />
+      {!isVideoIntroPage && <Footer />}
+      {!isVideoIntroPage && <WhatsAppFloat />}
     </div>
   )
 }
