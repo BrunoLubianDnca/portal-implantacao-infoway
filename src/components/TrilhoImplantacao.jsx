@@ -49,12 +49,12 @@ const etapas = [
   },
   {
     id: 4,
-    titulo: 'Suporte & FAQ',
-    descricao: 'Saiba quando e como acionar o suporte técnico e consulte as perguntas frequentes',
+    titulo: 'Suporte Infoway',
+    descricao: 'Entenda o escopo do suporte Infoway e saiba quando e como acionar',
     icone: HeadphonesIcon,
     tempo: '7 min',
   cor: '#FFB287',
-    topicos: ['Canais de suporte', 'FAQ', 'Contatos'],
+    topicos: ['Escopo do suporte', 'Quando acionar', 'Contatos'],
     imagem: '/images/trilho/Modulo-4.png' // Support/Headset
   }
 ]

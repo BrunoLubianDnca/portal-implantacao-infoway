@@ -1,0 +1,15 @@
+SUBSTITUIR POR: Screenshot do ícone de sincronização do Infodrive
+
+Recomendações:
+- Resolução sugerida: 800x600px ou similar
+- Formato: PNG
+- Mostrar: O ícone que aparece durante a sincronização
+- Destacar: Como identificar quando a transferência está em andamento
+- Objetivo: Ajudar usuários a saberem quando o processo foi concluído
+
+Quando adicionar a imagem real:
+1. Durante uma sincronização, capture o ícone
+2. Ou use uma captura mostrando o indicador de sincronização
+3. Salve como: infodrive-sincronizando.png
+4. Coloque nesta pasta: /public/images/trilho/
+5. Delete este arquivo .txt

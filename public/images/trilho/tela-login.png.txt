@@ -1,0 +1,13 @@
+SUBSTITUIR POR: Screenshot da tela de login do sistema Infoway
+
+Recomendações:
+- Resolução sugerida: 1200x800px ou similar
+- Formato: PNG com transparência (se possível)
+- Mostrar: Campos de login, senha, botão de acesso
+- Objetivo: Ajudar usuários a identificar a tela correta de login
+
+Quando adicionar a imagem real:
+1. Faça o screenshot da tela de login
+2. Salve como: tela-login.png
+3. Coloque nesta pasta: /public/images/trilho/
+4. Delete este arquivo .txt

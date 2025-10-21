@@ -60,15 +60,15 @@ const ProgressSidebar = ({ progressoGeral = 50 }) => {
   const totalModulos = modulos.length
 
   return (
-    <div className="progress-sidebar">
+    <nav className="progress-sidebar" aria-label="Trilha de progresso">
       <div className="progress-header">
         <h3>Progresso Geral</h3>
         <div className="progress-card">
           <div className="progress-stats">
             <span className="progress-count">{modulosConcluidos} de {totalModulos} módulos</span>
-            <span className="progress-percentage">{progressoGeral}%</span>
+            <span className="progress-percentage" aria-live="polite">{progressoGeral}%</span>
           </div>
-          <div className="progress-bar-container">
+          <div className="progress-bar-container" aria-hidden="true">
             <div 
               className="progress-bar-fill" 
               style={{ width: `${progressoGeral}%` }}
@@ -77,34 +77,41 @@ const ProgressSidebar = ({ progressoGeral = 50 }) => {
         </div>
       </div>
 
-      <div className="modulos-list">
-        {modulos.map((modulo) => {
+      <ul className="modulos-list" role="listbox" tabIndex={0} aria-label="Lista de módulos">
+        {modulos.map((modulo, idx) => {
           const statusInfo = getStatusInfo(modulo.status)
           const Icon = statusInfo.icon
           const isActive = modulo.status === 'em-andamento'
           const isBlocked = modulo.status === 'bloqueado'
-
+          const isConcluido = modulo.status === 'concluido'
           return (
-            <Link 
-              key={modulo.id} 
-              to={`/modulo/${modulo.id}`}
-              className={`modulo-item ${isActive ? 'active' : ''} ${isBlocked ? 'bloqueado' : ''}`}
-              onClick={(e) => { if (isBlocked) e.preventDefault() }}
-            >
-              <div className={`modulo-icon ${statusInfo.bgClass}`}>
-                <Icon size={16} className={statusInfo.textClass} />
-              </div>
-              <div className="modulo-info">
-                <p className="modulo-titulo">{modulo.titulo}</p>
-                <p className={`modulo-status ${statusInfo.textClass}`}>
-                  {statusInfo.label}
-                </p>
-              </div>
-            </Link>
+            <li key={modulo.id} role="option" aria-selected={isActive}>
+              <Link 
+                to={isBlocked ? '#' : `/modulo/${modulo.id}`}
+                className={`modulo-item ${isActive ? 'active' : ''} ${isBlocked ? 'bloqueado' : ''}`}
+                tabIndex={isBlocked ? -1 : 0}
+                aria-disabled={isBlocked}
+                aria-current={isActive ? 'step' : undefined}
+                onKeyDown={e => {
+                  if (!isBlocked && (e.key === 'Enter' || e.key === ' ')) {
+                    e.currentTarget.click()
+                  }
+                }}
+                onClick={e => { if (isBlocked) e.preventDefault() }}
+              >
+                <div className={`modulo-icon ${statusInfo.bgClass}`} aria-hidden="true">
+                  {isConcluido ? <CheckCircle size={18} className="text-green-600" aria-label="Concluído" /> : <Icon size={16} className={statusInfo.textClass} />}
+                </div>
+                <div className="modulo-info">
+                  <p className="modulo-titulo">{modulo.titulo}</p>
+                  <p className={`modulo-status ${statusInfo.textClass}`}>{statusInfo.label}</p>
+                </div>
+              </Link>
+            </li>
           )
         })}
-      </div>
-    </div>
+      </ul>
+    </nav>
   )
 }
 

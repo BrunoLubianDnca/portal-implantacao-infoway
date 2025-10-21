@@ -1,0 +1,18 @@
+SUBSTITUIR POR: Screenshot mostrando onde fica a pasta Infodrive no Windows Explorer
+
+Recomendações:
+- Resolução sugerida: 1200x800px ou similar
+- Formato: PNG
+- Mostrar: Barra de endereço com "C:\Infodrive\" e a pasta aberta
+- Destacar: A localização da pasta no explorador de arquivos
+- Objetivo: CRÍTICO - Reduzir confusão sobre onde encontrar a pasta
+
+Quando adicionar a imagem real:
+1. Abra o Windows Explorer
+2. Navegue até C:\Infodrive\
+3. Capture a tela mostrando a localização
+4. Salve como: infodrive-explorador.png
+5. Coloque nesta pasta: /public/images/trilho/
+6. Delete este arquivo .txt
+
+IMPORTANTE: Esta é a imagem mais importante - onde usuários mais têm dúvidas!

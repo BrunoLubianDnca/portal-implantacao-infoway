@@ -78,9 +78,6 @@ const Hero = () => {
               Implante seu sistema em poucos minutos
             </h1>
 
-            <p className="hero-subtitle">
-              Assista ao manual em vídeo e siga as etapas passo a passo.
-            </p>
 
             <div className="hero-buttons">
               <button onClick={scrollToTrilho} className="btn btn-primary btn-hero btn-cta-main">
