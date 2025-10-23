@@ -15,6 +15,8 @@ const Navbar = () => {
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
+    // limpar listener de widescreen state
+    // (não conseguimos remover two listeners in same return easily; use separate cleanup below)
   }, [])
 
   const handleSearch = (e) => {
@@ -29,6 +31,13 @@ const Navbar = () => {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' })
       setMobileMenuOpen(false)
     }
+  }
+
+  const handleNavbarReplay = () => {
+    try {
+      // emitir evento global que o WidescreenHero escutará
+      window.dispatchEvent(new CustomEvent('widescreen:replay'))
+    } catch (e) {}
   }
 
   return (
@@ -50,6 +59,7 @@ const Navbar = () => {
               <span className="logo-subtitle">Sistema Infoway</span>
             </div>
           </Link>
+          
 
           {/* Desktop Menu */}
           <div className="navbar-menu desktop-menu">

@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || 'https://portal-implantacao-infoway.onrender.com';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
 const fetchEmpresaByCNPJ = async (cnpj) => {
   try {

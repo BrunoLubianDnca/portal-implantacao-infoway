@@ -1,4 +1,5 @@
-import Hero from '../components/Hero'
+// Temporário: usar WidescreenHero para testes visuais/funcionais
+import WidescreenHero from '../components/WidescreenHero'
 import TrilhoImplantacao from '../components/TrilhoImplantacao'
 import Suporte from '../components/Suporte'
 import WelcomeCard from '../components/WelcomeCard';
@@ -23,15 +24,18 @@ const Home = () => {
   return (
     <main id="home">
       <WelcomePop nome={usuario?.nome} open={showPop} onClose={() => setShowPop(false)} />
-      <div style={{ position: 'relative', maxWidth: 720, margin: '0 auto 2rem' }}>
-        <div className="video-play-overlay" style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', width: '100%', height: '405px' }}>
-          <div className="play-button-large" style={{ background: 'rgba(0,0,0,0.45)', borderRadius: '50%', padding: '1rem', zIndex: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-play "><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-          </div>
-        </div>
+      
+      <WidescreenHero
+        videoSrc="/Videos/Inicio.mp4"
+        poster="/images/trilho/trailer-poster.jpg"
+        title="Bem-vindo ao Portal de Implantação"
+        subtitle="Assista ao vídeo e comece a implantação"
+        onPrimary={() => console.log('CTA concluído')}
+        scrollToId="trilho"
+      />
+      <div id="trilho">
+        <TrilhoImplantacao />
       </div>
-      <Hero />
-      <TrilhoImplantacao />
       <Suporte />
     </main>
   );

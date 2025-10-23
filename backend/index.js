@@ -5,17 +5,26 @@ import fetch from 'node-fetch'
 
 const app = express()
 
-// ✅ Configuração segura de CORS para produção e desenvolvimento
-app.use(cors({
-  origin: [
-    "https://portal-implantacao-infoway.vercel.app",
-    "https://portal-implantacao-infoway-673vydj7z-lubians-projects.vercel.app",
-    "http://localhost:3000",
-    "http://localhost:5173"
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  credentials: true
-}))
+// ✅ Configuração de CORS
+// Em desenvolvimento permitimos qualquer origem para facilitar testes locais.
+// Em produção usamos uma lista branca.
+if (process.env.NODE_ENV !== 'production') {
+  app.use(cors({ origin: true, methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], credentials: true }))
+  // Garantir que preflight (OPTIONS) receba os cabeçalhos CORS em dev
+  app.options('*', cors())
+} else {
+  app.use(cors({
+    origin: [
+      "https://portal-implantacao-infoway.vercel.app",
+      "https://portal-implantacao-infoway-673vydj7z-lubians-projects.vercel.app",
+      "http://localhost:3000",
+      "http://localhost:5173",
+      "http://localhost:5175"
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    credentials: true
+  }))
+}
 
 app.use(express.json())
 

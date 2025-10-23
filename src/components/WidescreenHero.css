@@ -1,0 +1,318 @@
+/* WidescreenHero styles - mantém proporção 16:9 e cobre largura horizontal */
+.widescreen-hero {
+  width: 100%;
+  position: relative; /* para posicionar elementos absolutos dentro do hero */
+}
+
+.widescreen-viewport {
+  position: relative;
+  width: 100%;
+  /* aspect-ratio CSS para manter 16:9 quando suportado */
+  aspect-ratio: 16 / 9;
+  /* fundo neutro para evitar tela preta quando vídeo diminui */
+  background: linear-gradient(180deg,#0b0b0b,#111);
+  overflow: hidden;
+}
+
+.widescreen-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 0;
+}
+
+.widescreen-poster {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.widescreen-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.widescreen-content {
+  color: #fff;
+  text-align: center;
+  padding: 24px;
+  max-width: 1100px;
+  width: 100%;
+  pointer-events: auto;
+}
+
+.widescreen-title {
+  margin: 0 0 8px 0;
+  font-size: clamp(20px, 3.5vw, 48px);
+  line-height: 1.05;
+  text-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+.widescreen-subtitle {
+  margin: 0 0 18px 0;
+  font-size: clamp(14px, 1.8vw, 20px);
+  font-weight: 500;
+  color: rgba(255,255,255,0.92);
+}
+
+.widescreen-actions {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn-primary.widescreen-cta {
+  background: linear-gradient(90deg,#FF6B35,#FF8C42);
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+.btn-primary.widescreen-cta:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-icon.widescreen-sound {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.06);
+  cursor: pointer;
+}
+
+.btn-icon.widescreen-sound.pending {
+  cursor: progress;
+  opacity: 0.9;
+}
+
+/* simple spinner */
+.widescreen-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.18);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* video loading indicator */
+.widescreen-loading {
+  position: absolute;
+  inset: 12px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  z-index: 6;
+}
+
+.widescreen-replay { text-align: center; margin-top: 12px }
+
+.widescreen-mini-replay {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  /* tema laranja do projeto */
+  background: linear-gradient(90deg,#FF6B35,#FF8C42);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  cursor: pointer;
+  z-index: 99999;
+  box-shadow: 0 6px 18px rgba(255,107,53,0.18);
+  transition: transform 160ms ease, box-shadow 160ms ease, opacity 120ms ease;
+}
+
+.widescreen-mini-replay:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(255,107,53,0.22);
+}
+
+.widescreen-mini-replay:focus {
+  outline: 3px solid rgba(255,107,53,0.24);
+  outline-offset: 3px;
+}
+
+/* Minimal variant positioned inside the hero's top-right corner */
+
+.widescreen-mini-replay--minimal {
+  position: absolute; /* relative to .widescreen-hero */
+  top: 12px;
+  right: 12px;
+  bottom: auto;
+  background: var(--btn-primary-bg, var(--brand-peach)); /* usar cor da Infoway */
+  color: var(--on-primary, #fff);
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  box-shadow: none;
+  z-index: 1000; /* garantir que fique acima do overlay */
+  border: 1px solid rgba(255,255,255,0.06);
+  opacity: 1;
+}
+
+.widescreen-mini-replay--minimal svg { display: block; }
+
+.widescreen-mini-replay--minimal:hover {
+  transform: none;
+  box-shadow: var(--btn-shadow);
+}
+
+.widescreen-mini-replay--minimal:focus {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* botão visível exibido após o hero sair - fixo no topo direito para melhor visibilidade */
+.widescreen-replay-inline {
+  /* posicionar dentro do próprio hero para garantir que só apareça na Home
+     e não fique flutuando sobre o footer quando o usuário rolar a página */
+  position: absolute;
+  top: 14px;
+  left: 18px;
+  background: linear-gradient(90deg,#FF6B35,#FF8C42);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  z-index: 1200; /* acima do overlay, mas abaixo de elementos globais fixos se houver */
+  box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.widescreen-replay-inline:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.38);
+}
+.widescreen-replay-inline:focus {
+  outline: 3px solid rgba(255,255,255,0.14);
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .widescreen-mini-replay {
+    right: 12px;
+    bottom: 12px;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+  .widescreen-mini-replay--minimal {
+    top: 10px;
+    right: 10px;
+    padding: 6px 8px;
+    font-size: 13px;
+  }
+  .widescreen-replay-inline { top: 10px; right: 10px; padding: 6px 8px; font-size: 13px; }
+}
+
+.widescreen-interaction {
+  margin-top: 12px;
+  color: #fff;
+  background: rgba(0,0,0,0.45);
+  padding: 8px 12px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.widescreen-error {
+  margin-top: 8px;
+  color: #ffdddd;
+  background: rgba(128,0,0,0.35);
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+/* Foco visível para acessibilidade */
+.btn-primary.widescreen-cta:focus,
+.btn-icon.widescreen-sound:focus {
+  outline: 3px solid rgba(255,107,53,0.28);
+  outline-offset: 3px;
+}
+
+/* visually hidden for screen readers */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* fallback: se browser não suportar aspect-ratio, usa padding trick */
+@supports not (aspect-ratio: 16/9) {
+  .widescreen-viewport {
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 */
+  }
+  .widescreen-video { position: absolute; }
+}
+
+/* Collapsed state: reduz a altura do hero quando necessário */
+.widescreen-viewport.collapsed {
+  aspect-ratio: auto;
+  height: 40vh;
+}
+
+/* Quando finalizado, remover do fluxo e ocultar completamente para leitores de tela */
+.widescreen-viewport.hidden-after-finish {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .widescreen-viewport,
+  .widescreen-poster,
+  .widescreen-video {
+    transition: none !important;
+  }
+}
+
+/* Mobile tweaks */
+@media (max-width: 640px) {
+  .widescreen-content { padding: 16px; }
+  .widescreen-title { font-size: clamp(18px, 6vw, 28px); }
+  .btn-primary.widescreen-cta { padding: 10px 14px; }
+}

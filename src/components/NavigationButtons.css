@@ -1,0 +1,216 @@
+/* ============================================
+   NAVIGATION BUTTONS - COMPONENTE CONSISTENTE
+   Cores oficiais: #E15503, #333333, #666666, #F5F5F5, #E0E0E0
+   ============================================ */
+
+.navigation-buttons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid #E0E0E0;
+  padding: 1rem;
+  z-index: 100;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.nav-buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  cursor: pointer;
+  min-width: 140px;
+  justify-content: center;
+}
+
+.nav-btn:focus-visible {
+  outline: 2px solid #E15503;
+  outline-offset: 2px;
+}
+
+/* Botão Voltar */
+.nav-btn-voltar {
+  background: #F5F5F5;
+  color: #666666;
+  border-color: #E0E0E0;
+}
+
+.nav-btn-voltar:hover:not(.disabled) {
+  background: #E0E0E0;
+  color: #333333;
+  transform: translateX(-2px);
+}
+
+/* Botão Home */
+.nav-btn-home {
+  background: #FFFFFF;
+  color: #666666;
+  border-color: #E0E0E0;
+}
+
+.nav-btn-home:hover {
+  background: #F5F5F5;
+  color: #333333;
+}
+
+/* Botão Próximo */
+.nav-btn-proximo {
+  background: #E15503;
+  color: #FFFFFF;
+  border-color: #E15503;
+}
+
+.nav-btn-proximo:hover:not(.disabled) {
+  background: #d14a0a;
+  border-color: #d14a0a;
+  transform: translateX(2px);
+  box-shadow: 0 4px 12px rgba(225, 85, 3, 0.3);
+}
+
+/* Estado desabilitado */
+.nav-btn.disabled {
+  background: #CCCCCC;
+  color: #999999;
+  border-color: #CCCCCC;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}
+
+.nav-btn.disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .navigation-buttons {
+    padding: 0.75rem;
+  }
+
+  .nav-buttons-container {
+    gap: 0.5rem;
+  }
+
+  .nav-btn {
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    min-width: 120px;
+  }
+
+  .nav-btn-home {
+    display: none; /* Esconde o botão home no mobile para economizar espaço */
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8125rem;
+    min-width: 100px;
+  }
+
+  .nav-btn span {
+    display: none; /* Esconde texto no mobile muito pequeno, mantém apenas ícones */
+  }
+
+  .nav-btn {
+    min-width: auto;
+    padding: 0.75rem;
+  }
+}
+
+/* ============================================
+   MENSAGEM DE BLOQUEIO ANIMADA
+   ============================================ */
+
+.blocked-message-overlay {
+  position: fixed;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1001;
+  animation: slideUp 0.3s ease-out;
+}
+
+.blocked-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 2px solid #E15503;
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  color: #333333;
+}
+
+.blocked-message svg {
+  color: #E15503;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.blocked-message-content h4 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #E15503;
+  margin-bottom: 0.5rem;
+}
+
+.blocked-message-content p {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0 0 0.5rem 0;
+}
+
+.blocked-motivation {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #E15503 !important;
+  margin: 0 !important;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Responsividade para mobile */
+@media (max-width: 480px) {
+  .blocked-message-overlay {
+    left: 10px;
+    right: 10px;
+    transform: none;
+  }
+
+  .blocked-message {
+    max-width: none;
+  }
+}
